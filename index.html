@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>فم‌یار شاپ | فروشگاه تخصصی مادر و کودک</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #fff8fb;
+  --surface: #ffffff;
+  --surface-soft: #fdf0f6;
+  --plum-900: #3d2145;
+  --plum-800: #4b2853;
+  --plum-700: #5b3260;
+  --plum-500: #8a5a97;
+  --rose: #d987a6;
+  --rose-light: #f8dce8;
+  --peach: #f2a7ac;
+  --peach-dark: #e88891;
+  --purple-light: #eee2f8;
+  --border: #f0dcea;
+  --success: #2e7d32;
+  --danger: #c62828;
+  --warning: #f57c00;
+  --shadow: 0 12px 35px rgba(93, 50, 96, 0.10);
+  --shadow-hover: 0 18px 45px rgba(93, 50, 96, 0.16);
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Vazirmatn", sans-serif;
+  background: linear-gradient(180deg, #fff8fb 0%, #f7eefb 100%);
+  color: var(--plum-900);
+}
+button, input, select, textarea { font-family: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+.app { min-height: 100vh; }
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-mark {
+  width: 44px; height: 44px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 22px;
+  background: linear-gradient(135deg, var(--rose), var(--plum-500));
+  box-shadow: 0 8px 20px rgba(138,90,151,.22);
+}
+.logo-text { font-size: 1.1rem; font-weight: 800; }
+.logo-text small { display: block; font-size: .68rem; font-weight: 500; color: var(--plum-500); }
+
+.search-box { flex: 1; max-width: 520px; position: relative; }
+.search-box input {
+  width: 100%; border: 1px solid var(--border); background: #fff7fa;
+  border-radius: 15px; padding: 13px 45px 13px 16px; outline: none;
+  color: var(--plum-900); font-size: .9rem; transition: .2s;
+}
+.search-box input:focus { border-color: var(--rose); background: white; box-shadow: 0 0 0 4px rgba(217,135,166,.12); }
+.search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--plum-500); }
+
+.header-actions { margin-right: auto; display: flex; align-items: center; gap: 10px; }
+.icon-btn {
+  width: 44px; height: 44px; border: 1px solid var(--border); background: white;
+  border-radius: 14px; color: var(--plum-700); display: flex; align-items: center;
+  justify-content: center; position: relative; transition: .2s;
+}
+.icon-btn:hover { border-color: var(--rose); transform: scale(1.03); }
+.cart-count {
+  position: absolute; top: -5px; left: -5px; min-width: 19px; height: 19px;
+  padding: 0 5px; border-radius: 20px; background: var(--peach-dark); color: white;
+  font-size: .65rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+
+.nav { border-top: 1px solid #f8edf4; }
+.nav-inner { max-width: 1200px; margin: auto; padding: 10px 22px; display: flex; gap: 8px; overflow-x: auto; }
+.nav button {
+  border: none; background: transparent; color: var(--plum-700); padding: 8px 14px;
+  border-radius: 12px; white-space: nowrap; font-size: .84rem; font-weight: 600; transition: .2s;
+}
+.nav button:hover, .nav button.active { background: var(--rose-light); color: var(--plum-900); }
+
+.main { max-width: 1200px; margin: auto; padding: 28px 22px 70px; }
+
+.hero {
+  position: relative; overflow: hidden; min-height: 300px; border-radius: 30px;
+  padding: 45px; background: linear-gradient(135deg, #f9dfe9, #eee1f8);
+  display: flex; align-items: center; box-shadow: var(--shadow);
+}
+.hero::before {
+  content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%;
+  background: rgba(255,255,255,.30); left: -80px; bottom: -100px;
+}
+.hero-content { max-width: 570px; position: relative; z-index: 2; }
+.hero-label {
+  display: inline-block; padding: 7px 13px; border-radius: 30px;
+  background: rgba(255,255,255,.65); color: var(--plum-700); font-size: .78rem; font-weight: 700; margin-bottom: 13px;
+}
+.hero h1 { margin: 0 0 12px; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.4; font-weight: 800; }
+.hero p { margin: 0 0 24px; line-height: 1.9; color: var(--plum-700); font-size: .95rem; }
+.hero-btn {
+  border: none; background: var(--peach-dark); color: white; border-radius: 14px;
+  padding: 13px 22px; font-weight: 700; box-shadow: 0 12px 25px rgba(232,136,145,.30); transition: .2s;
+}
+.hero-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 28px rgba(232,136,145,.40); }
+
+.section { margin-top: 42px; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.section-title { margin: 0; font-size: 1.25rem; font-weight: 800; }
+.section-subtitle { margin: 4px 0 0; color: var(--plum-500); font-size: .78rem; }
+
+.categories { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.category {
+  border: 1px solid var(--border); background: white; border-radius: 18px;
+  padding: 20px 10px; text-align: center; transition: .2s; cursor: pointer;
+}
+.category:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.category-icon {
+  width: 50px; height: 50px; margin: auto auto 10px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; font-size: 23px; background: var(--rose-light);
+}
+.category:nth-child(2) .category-icon { background: var(--purple-light); }
+.category:nth-child(3) .category-icon { background: #e4f1fa; }
+.category:nth-child(4) .category-icon { background: #f8ecd9; }
+.category:nth-child(5) .category-icon { background: #e3f3e9; }
+.category span { font-size: .82rem; font-weight: 700; }
+
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.product-card {
+  background: white; border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; box-shadow: 0 7px 22px rgba(93,50,96,.06); transition: .25s; position: relative; display: flex; flex-direction: column;
+}
+.product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.product-image {
+  height: 230px; position: relative; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #fce8f0, #eee6fa); overflow: hidden;
+}
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: .3s; }
+.product-card:hover .product-image img { transform: scale(1.04); }
+.product-placeholder { font-size: 55px; opacity: .75; }
+.discount {
+  position: absolute; top: 12px; right: 12px; background: var(--peach-dark); color: white;
+  border-radius: 9px; padding: 5px 8px; font-size: .7rem; font-weight: 800; z-index: 2;
+}
+.favorite {
+  position: absolute; top: 10px; left: 10px; width: 34px; height: 34px; border-radius: 50%;
+  border: none; background: rgba(255,255,255,.9); color: var(--rose); font-size: 18px; z-index: 2; transition: .2s;
+}
+.favorite:hover { transform: scale(1.1); }
+.product-info { padding: 15px; display: flex; flex-direction: column; flex: 1; }
+.product-category { color: var(--plum-500); font-size: .68rem; margin-bottom: 5px; font-weight: 600; }
+.product-name { margin: 0; font-size: .9rem; line-height: 1.6; min-height: 45px; font-weight: 700; }
+.product-rating { margin-top: 7px; font-size: .72rem; color: #b27a2e; font-weight: 600; }
+.price-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto; padding-top: 12px; gap: 8px; }
+.price-old { display: block; color: #aaa; text-decoration: line-through; font-size: .68rem; }
+.price { color: var(--plum-900); font-weight: 800; font-size: .92rem; }
+.add-cart {
+  border: none; background: var(--peach); color: white; width: 38px; height: 38px;
+  border-radius: 12px; font-size: 18px; transition: .2s; display: flex; align-items: center; justify-content: center;
+}
+.add-cart:hover { background: var(--peach-dark); transform: scale(1.05); }
+
+.page-view { display: none; }
+.page-view.active { display: block; }
+.back-button {
+  border: 1px solid var(--border); background: white; padding: 10px 18px; border-radius: 12px;
+  color: var(--plum-700); margin-bottom: 20px; font-size: .85rem; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 6px; transition: .2s;
+}
+.back-button:hover { background: var(--surface-soft); border-color: var(--rose); }
+
+.product-detail {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 35px; background: white;
+  border: 1px solid var(--border); border-radius: 25px; padding: 25px; box-shadow: var(--shadow);
+}
+.detail-image {
+  min-height: 440px; background: linear-gradient(135deg, #fce8f0, #eee6fa);
+  border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.detail-image img { width: 100%; max-height: 480px; object-fit: cover; }
+.detail-placeholder { font-size: 100px; }
+.detail-category { color: var(--plum-500); font-size: .8rem; margin-bottom: 8px; font-weight: 600; }
+.detail-title { font-size: 1.6rem; line-height: 1.5; margin: 0 0 10px; font-weight: 800; }
+.detail-rating { color: #b27a2e; font-size: .85rem; margin-bottom: 20px; }
+.detail-description { color: var(--plum-700); font-size: .92rem; line-height: 2; margin-bottom: 22px; }
+.detail-price { font-size: 1.5rem; font-weight: 800; color: var(--plum-900); }
+.detail-old-price { color: #aaa; text-decoration: line-through; font-size: .85rem; margin-left: 8px; }
+.quantity { display: inline-flex; align-items: center; gap: 12px; background: var(--surface-soft); padding: 4px 10px; border-radius: 12px; }
+.quantity button {
+  width: 32px; height: 32px; border: 1px solid var(--border); background: white;
+  border-radius: 8px; font-size: 16px; font-weight: 700; color: var(--plum-900); display: flex; align-items: center; justify-content: center;
+}
+.quantity span { min-width: 25px; text-align: center; font-weight: 800; }
+.detail-add {
+  width: 100%; border: none; background: linear-gradient(135deg, var(--peach), var(--peach-dark));
+  color: white; padding: 15px; border-radius: 14px; font-weight: 800; font-size: .98rem;
+  margin-top: 20px; box-shadow: 0 10px 25px rgba(232,136,145,.3); transition: .2s;
+}
+.detail-add:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(232,136,145,.4); }
+
+.checkout-container { max-width: 980px; margin: auto; }
+.cart-title { font-size: 1.5rem; margin-bottom: 22px; font-weight: 800; }
+.cart-layout { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; align-items: start; }
+.cart-items-wrapper { display: flex; flex-direction: column; gap: 12px; }
+.cart-item { background: white; border: 1px solid var(--border); border-radius: 18px; padding: 14px; display: flex; align-items: center; gap: 15px; }
+.cart-item-image {
+  width: 80px; height: 80px; border-radius: 14px; background: var(--surface-soft);
+  display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+}
+.cart-item-image img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item-image span { font-size: 32px; }
+.cart-item-info { flex: 1; }
+.cart-item-name { margin: 0 0 6px; font-size: .88rem; font-weight: 700; }
+.cart-item-price { color: var(--plum-700); font-size: .82rem; font-weight: 700; margin-bottom: 8px; }
+.remove {
+  border: none; background: #fff0f3; color: #c65c76; width: 32px; height: 32px;
+  border-radius: 10px; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: .2s;
+}
+.remove:hover { background: #ffe2e8; }
+
+.checkout-card { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 22px; box-shadow: var(--shadow); }
+.checkout-card h3 { margin: 0 0 16px; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.form-group { margin-bottom: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form-label { display: block; font-size: .78rem; font-weight: 700; margin-bottom: 6px; color: var(--plum-800); }
+.form-input, .form-select, .form-textarea {
+  width: 100%; border: 1px solid var(--border); background: #fff7fa; border-radius: 12px;
+  padding: 11px 13px; font-size: .85rem; color: var(--plum-900); outline: none; transition: .2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--rose); background: white; box-shadow: 0 0 0 3px rgba(217,135,166,.12); }
+.form-textarea { resize: vertical; min-height: 70px; }
+
+.summary-box { margin-top: 18px; border-top: 1px dashed var(--border); padding-top: 14px; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: .85rem; color: var(--plum-700); }
+.summary-total { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; font-size: 1.05rem; font-weight: 800; color: var(--plum-900); }
+.checkout-btn {
+  width: 100%; margin-top: 18px; border: none; background: linear-gradient(135deg, #e88891, #d987a6);
+  color: white; padding: 15px; border-radius: 14px; font-weight: 800; font-size: .95rem;
+  display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 10px 25px rgba(232,136,145,.35); transition: .2s;
+}
+.checkout-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(232,136,145,.45); }
+.checkout-btn:disabled { opacity: .6; cursor: not-allowed; }
+.zarinpal-trust-badge { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; font-size: .75rem; color: var(--plum-500); }
+
+.alert-box { border-radius: 14px; padding: 14px; margin-bottom: 16px; font-size: .82rem; line-height: 1.8; display: none; }
+.alert-danger { background: #fdf0f0; border: 1px solid #f9c7c7; color: #a82323; }
+
+.empty-cart { text-align: center; background: white; border: 1px solid var(--border); border-radius: 20px; padding: 60px 20px; color: var(--plum-500); max-width: 600px; margin: 30px auto; }
+.empty-cart-icon { font-size: 50px; margin-bottom: 12px; }
+
+.result-card { max-width: 650px; margin: 30px auto; background: white; border-radius: 25px; padding: 35px 28px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.result-icon { width: 76px; height: 76px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; margin: 0 auto 18px; }
+.result-icon.success { background: #e8f5e9; color: #2e7d32; border: 2px solid #a5d6a7; }
+.result-icon.failed { background: #ffebee; color: #c62828; border: 2px solid #ef9a9a; }
+.result-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+.result-subtitle { color: var(--plum-700); font-size: .88rem; margin-bottom: 24px; line-height: 1.8; }
+.receipt-details { background: #fff8fb; border: 1px solid var(--border); border-radius: 16px; padding: 18px; text-align: right; margin-bottom: 25px; }
+.receipt-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f6e6f0; font-size: .85rem; }
+.receipt-row:last-child { border-bottom: none; font-weight: 800; font-size: .95rem; color: var(--plum-900); }
+.receipt-label { color: var(--plum-500); }
+.receipt-value { font-weight: 700; }
+.receipt-value.code { letter-spacing: 1px; font-family: monospace, "Vazirmatn"; color: var(--plum-800); }
+
+.trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.trust-item { background: white; border: 1px solid var(--border); border-radius: 17px; padding: 18px 12px; text-align: center; }
+.trust-icon { font-size: 25px; margin-bottom: 7px; }
+.trust-item strong { display: block; font-size: .78rem; }
+.trust-item span { display: block; margin-top: 4px; color: var(--plum-500); font-size: .65rem; }
+
+.footer { background: #3d2145; color: #f7eaf4; margin-top: 60px; padding: 40px 22px 30px; text-align: center; }
+.footer-logo { font-weight: 800; font-size: 1.15rem; margin-bottom: 8px; }
+.footer p { margin: 0 0 14px; color: #d9c3d9; font-size: .8rem; }
+.footer-notes { font-size: .7rem; color: #b59eb5; border-top: 1px solid rgba(255,255,255,.1); padding-top: 14px; max-width: 600px; margin: auto; }
+
+.toast {
+  position: fixed; bottom: 25px; right: 50%; transform: translateX(50%) translateY(100px);
+  background: var(--plum-900); color: white; padding: 13px 22px; border-radius: 14px;
+  font-size: .85rem; z-index: 999; opacity: 0; transition: .3s; box-shadow: 0 10px 30px rgba(0,0,0,.2); white-space: nowrap;
+}
+.toast.show { transform: translateX(50%) translateY(0); opacity: 1; }
+
+@media (max-width: 960px) { .cart-layout { grid-template-columns: 1fr; } .products { grid-template-columns: repeat(3, 1fr); } .categories { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 720px) {
+  .header-inner { flex-wrap: wrap; }
+  .search-box { order: 3; max-width: none; flex-basis: 100%; }
+  .hero { padding: 30px 22px; min-height: 250px; }
+  .products { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-image { height: 185px; }
+  .categories { display: flex; overflow-x: auto; padding-bottom: 6px; }
+  .category { min-width: 110px; }
+  .product-detail { grid-template-columns: 1fr; padding: 16px; }
+  .detail-image { min-height: 290px; }
+  .trust { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 440px) {
+  .main, .header-inner { padding-left: 14px; padding-right: 14px; }
+  .hero { border-radius: 20px; padding: 24px 18px; }
+  .hero h1 { font-size: 1.5rem; }
+  .cart-item { padding: 10px; }
+  .cart-item-image { width: 65px; height: 65px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header">
+<div class="header-inner">
+<a class="logo" href="#" onclick="showHome(); return false;">
+<div class="logo-mark">♡</div>
+<div class="logo-text">فم‌یار<small>فم‌یار شاپ</small></div>
+</a>
+<div class="search-box">
+<span class="search-icon">⌕</span>
+<input autocomplete="off" id="searchInput" placeholder="جستجوی محصول، مادر، نوزاد..." type="search"/>
+</div>
+<div class="header-actions">
+<button aria-label="سبد خرید" class="icon-btn" onclick="showCart()" title="سبد خرید">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+</button>
+</div>
+</div>
+<nav class="nav">
+<div class="nav-inner">
+<button class="active" onclick="filterProducts('all', this)">همه محصولات</button>
+<button onclick="filterProducts('feeding', this)">🤱 شیردهی</button>
+<button onclick="filterProducts('baby', this)">👶 نوزاد</button>
+<button onclick="filterProducts('walking', this)">🚼 راه رفتن کودک</button>
+<button onclick="filterProducts('mother', this)">🤰 مادر</button>
+<button onclick="filterProducts('child', this)">🧸 کودک</button>
+</div>
+</nav>
+</header>
+
+<main class="main">
+<section class="page-view active" id="homeView">
+<section class="hero">
+<div class="hero-content">
+<span class="hero-label">فروشگاه فم‌یار</span>
+<h1>محصولات کاربردی برای<br/>مادر و کودک</h1>
+<p>محصولاتی که با دقت برای دوران بارداری، شیردهی، مراقبت از نوزاد و رشد کودک انتخاب شده‌اند.</p>
+<button class="hero-btn" onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">مشاهده محصولات</button>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<div><h2 class="section-title">دسته‌بندی‌ها</h2><p class="section-subtitle">سریع‌تر محصول موردنظرت رو پیدا کن</p></div>
+</div>
+<div class="categories">
+<button class="category" onclick="filterProducts('feeding')"><div class="category-icon">🤱</div><span>شیردهی</span></button>
+<button class="category" onclick="filterProducts('baby')"><div class="category-icon">👶</div><span>نوزاد</span></button>
+<button class="category" onclick="filterProducts('walking')"><div class="category-icon">🚼</div><span>راه رفتن</span></button>
+<button class="category" onclick="filterProducts('mother')"><div class="category-icon">🤰</div><span>مادر</span></button>
+<button class="category" onclick="filterProducts('child')"><div class="category-icon">🧸</div><span>کودک</span></button>
+</div>
+</section>
+
+<section class="section" id="productsSection">
+<div class="section-header">
+<div><h2 class="section-title">محصولات فم‌یار</h2><p class="section-subtitle">انتخاب‌شده برای سلامت و آرامش خانواده</p></div>
+</div>
+<div class="products" id="productGrid"></div>
+</section>
+
+<section class="section">
+<div class="section-header"><div><h2 class="section-title">چرا از فم‌یار خرید کنیم؟</h2></div></div>
+<div class="trust">
+<div class="trust-item"><div class="trust-icon">🔍</div><strong>انتخاب دقیق</strong><span>معرفی شفاف محصولات</span></div>
+<div class="trust-item"><div class="trust-icon">💬</div><strong>پشتیبانی</strong><span>پاسخ‌گویی قبل و بعد خرید</span></div>
+<div class="trust-item"><div class="trust-icon">🔒</div><strong>درگاه امن زرین‌پال</strong><span>پرداخت رسمی تحت پروتکل شاپرک</span></div>
+<div class="trust-item"><div class="trust-icon">📦</div><strong>ارسال سراسری</strong><span>پست پیشتاز و ارسال ویژه</span></div>
+</div>
+</section>
+</section>
+
+<section class="page-view" id="productView">
+<button class="back-button" onclick="showHome()">← بازگشت به فروشگاه</button>
+<div class="product-detail" id="productDetail"></div>
+</section>
+
+<section class="page-view" id="cartView">
+<div class="checkout-container">
+<button class="back-button" onclick="showHome()">← ادامه خرید از فروشگاه</button>
+<h1 class="cart-title">🛒 سبد خرید و تسویه حساب</h1>
+<div id="cartContent"></div>
+</div>
+</section>
+
+<section class="page-view" id="paymentSuccessView">
+<div class="result-card">
+<div class="result-icon success">✓</div>
+<h2 class="result-title" style="color: var(--success);">پرداخت با موفقیت انجام شد</h2>
+<p class="result-subtitle">سفارش شما در سامانه ثبت گردید و برای بسته‌بندی و ارسال آماده می‌شود.</p>
+<div class="receipt-details">
+<div class="receipt-row"><span class="receipt-label">شماره فاکتور سفارش:</span><span class="receipt-value code" id="successOrderId">-</span></div>
+<div class="receipt-row"><span class="receipt-label">کد رهگیری زرین‌پال (RefID):</span><span class="receipt-value code" id="successRefId">-</span></div>
+<div class="receipt-row"><span class="receipt-label">وضعیت پرداخت:</span><span class="receipt-value" style="color: var(--success);">تأیید شده شاپرک (موفق)</span></div>
+<div class="receipt-row"><span class="receipt-label">مبلغ پرداختی:</span><span class="receipt-value" id="successAmount">-</span></div>
+</div>
+<button class="hero-btn" onclick="showHome()">بازگشت به صفحه اصلی فروشگاه</button>
+</div>
+</section>
+
+<section class="page-view" id="paymentFailedView">
+<div class="result-card">
+<div class="result-icon failed">✕</div>
+<h2 class="result-title" style="color: var(--danger);">پرداخت ناموفق بود یا لغو گردید</h2>
+<p class="result-subtitle">تراکنش شما توسط درگاه پرداخت تکمیل نشد. سبد خرید شما ذخیره باقی مانده است.</p>
+<div class="receipt-details">
+<div class="receipt-row"><span class="receipt-label">شماره سفارش:</span><span class="receipt-value code" id="failedOrderId">-</span></div>
+<div class="receipt-row"><span class="receipt-label">علت خطا:</span><span class="receipt-value" id="failedReason" style="color: var(--danger);">-</span></div>
+</div>
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<button class="hero-btn" onclick="showCart()">مشاهده سبد خرید و تلاش مجدد</button>
+<button class="back-button" onclick="showHome()" style="margin: 0;">بازگشت به خانه</button>
+</div>
+</div>
+</section>
+
+<section class="page-view" id="searchView">
+<button class="back-button" onclick="showHome()">← بازگشت</button>
+<h2 class="search-title">نتایج جستجو</h2>
+<div class="products" id="searchGrid"></div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="footer-logo">فم‌یار شاپ 💗</div>
+<p>همراه مادر و کودک، از انتخاب تا خرید آسوده و مطمئن</p>
+<div class="footer-notes">کلیه حقوق مادی و معنوی متعلق به فم‌یار شاپ می‌باشد.</div>
+</footer>
+<div class="toast" id="toast"></div>
+</div>
+
+<script>
+let products = [
+  {
+    id: 1,
+    name: "بند کمکی راه رفتن نی‌نی‌سیف (NiniSafe)",
+    category: "walking",
+    categoryName: "راه رفتن کودک",
+    price: 1100000,
+    oldPrice: 1300000,
+    rating: 4.9,
+    emoji: "🚼",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-tgGWlJ5tY5jUmLJYr-RIqCd__4ggF3xBVG8ZP-6E5UMaOrspfvanrP8xDP1IqytFTJ7KWijodC5RpbWLe3kJZPA2tySKc-xOSMqHuhPkFWBdLuyfMbWxKo2YzVPJjUKf9xznMGS_4IJfOjT2I0D4Kr18aVKwD4Q91qal9am-aizZPmvvKOY-Fyhrj6feyLpvOJx6zklNegk8iGz8Kfi1Z2Hd9ibrh-v5jjRBF5AI9ve5ywhBWVXjiznnW7pKCF8t3A",
+    description: "بند کمکی طراحی‌شده بر اساس اصول ارگونومی برای کمک به تمرین راه رفتن کودک بدون فشار به ستون فقرات والدین."
+  },
+  {
+    id: 2,
+    name: "بالش شیردهی مادر و نوزاد",
+    category: "feeding",
+    categoryName: "شیردهی",
+    price: 890000,
+    oldPrice: 1050000,
+    rating: 4.8,
+    emoji: "🤱",
+    image: "",
+    description: "بالش حمایتی ارگونومیک با الیاف ضدحساسیت برای قرارگیری استاندارد نوزاد هنگام تغذیه."
+  },
+  {
+    id: 3,
+    name: "پد شیردهی قابل شست‌وشو (پک چندتایی)",
+    category: "feeding",
+    categoryName: "شیردهی",
+    price: 390000,
+    oldPrice: 450000,
+    rating: 4.7,
+    emoji: "💗",
+    image: "",
+    description: "پدهای پنبه‌ای قابل استفاده مجدد و لطیف، طراحی ویژه جلوگیری از نشت با تنفس‌پذیری بالا."
+  },
+  {
+    id: 4,
+    name: "ست مراقبت اولیه و بهداشت نوزاد",
+    category: "baby",
+    categoryName: "نوزاد",
+    price: 750000,
+    oldPrice: 850000,
+    rating: 4.8,
+    emoji: "👶",
+    image: "",
+    description: "مجموعه ابزارهای ایمن بهداشتی شامل ناخن‌گیر محافظ‌دار، قیچی گرد، شانه مخصوص و برس ابریشمی نوزاد."
+  }
+];
+
+let cart = JSON.parse(localStorage.getItem("femyar_cart")) || [];
+
+function formatPrice(price) {
+  return new Intl.NumberFormat("fa-IR").format(price) + " تومان";
+}
+
+function getDiscount(product) {
+  if (!product.oldPrice || product.oldPrice <= product.price) return null;
+  return Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100);
+}
+
+function createProductCard(product) {
+  const discount = getDiscount(product);
+  const imageHTML = product.image
+    ? `<img src="${product.image}" alt="${product.name}">`
+    : `<span class="product-placeholder">${product.emoji}</span>`;
+
+  return `
+    <article class="product-card" onclick="showProduct(${product.id})">
+      <div class="product-image">
+        ${imageHTML}
+        ${discount ? `<span class="discount">${discount}% تخفیف</span>` : ""}
+        <button class="favorite" onclick="event.stopPropagation(); toggleFavorite(${product.id})">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-category">${product.categoryName}</div>
+        <h3 class="product-name">${product.name}</h3>
+        <div class="product-rating">★ ${product.rating}</div>
+        <div class="price-row">
+          <div>
+            ${product.oldPrice ? `<span class="price-old">${formatPrice(product.oldPrice)}</span>` : ""}
+            <span class="price">${formatPrice(product.price)}</span>
+          </div>
+          <button class="add-cart" onclick="event.stopPropagation(); addToCart(${product.id})">+</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderProducts(list = products) {
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = list.length
+    ? list.map(createProductCard).join("")
+    : `<div class="empty-cart">محصولی در این دسته‌بندی پیدا نشد.</div>`;
+}
+
+function filterProducts(category, clickedButton) {
+  showHome();
+  const buttons = document.querySelectorAll(".nav button");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  if (clickedButton) clickedButton.classList.add("active");
+  const filtered = category === "all" ? products : products.filter(p => p.category === category);
+  renderProducts(filtered);
+  document.getElementById("productsSection")?.scrollIntoView({ behavior: "smooth" });
+}
+
+window.currentDetailQuantity = 1;
+
+function showProduct(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+  hideAllViews();
+  document.getElementById("productView").classList.add("active");
+  const detail = document.getElementById("productDetail");
+  const imageHTML = product.image ? `<img src="${product.image}">` : `<span class="detail-placeholder">${product.emoji}</span>`;
+
+  detail.innerHTML = `
+    <div class="detail-image">${imageHTML}</div>
+    <div>
+      <div class="detail-category">${product.categoryName}</div>
+      <h1 class="detail-title">${product.name}</h1>
+      <div class="detail-rating">★ ${product.rating} از ۵</div>
+      <p class="detail-description">${product.description}</p>
+      <div style="margin-bottom: 20px;">
+        ${product.oldPrice ? `<span class="detail-old-price">${formatPrice(product.oldPrice)}</span>` : ""}
+        <span class="detail-price">${formatPrice(product.price)}</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 15px; margin: 20px 0;">
+        <span style="font-weight: 700; font-size: .85rem;">تعداد:</span>
+        <div class="quantity">
+          <button type="button" onclick="changeDetailQuantity(-1)">−</button>
+          <span id="detailQuantity">1</span>
+          <button type="button" onclick="changeDetailQuantity(1)">+</button>
+        </div>
+      </div>
+      <button class="detail-add" onclick="addDetailToCart(${product.id})">افزودن به سبد خرید 🛒</button>
+    </div>
+  `;
+  window.currentDetailQuantity = 1;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function changeDetailQuantity(amount) {
+  window.currentDetailQuantity = Math.max(1, window.currentDetailQuantity + amount);
+  const el = document.getElementById("detailQuantity");
+  if (el) el.textContent = window.currentDetailQuantity;
+}
+
+function addDetailToCart(id) {
+  const quantity = window.currentDetailQuantity || 1;
+  const existing = cart.find(item => item.id === id);
+  if (existing) existing.quantity += quantity;
+  else cart.push({ id, quantity });
+  saveCart();
+  updateCartCount();
+  showToast(`تعداد ${quantity} عدد به سبد خرید اضافه شد 💗`);
+}
+
+function addToCart(id) {
+  const existing = cart.find(item => item.id === id);
+  if (existing) existing.quantity += 1;
+  else cart.push({ id, quantity: 1 });
+  saveCart();
+  updateCartCount();
+  showToast("محصول به سبد خرید اضافه شد 🛒");
+}
+
+function saveCart() { localStorage.setItem("femyar_cart", JSON.stringify(cart)); }
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const el = document.getElementById("cartCount");
+  if (el) el.textContent = count;
+}
+
+function showCart() {
+  hideAllViews();
+  document.getElementById("cartView").classList.add("active");
+  renderCart();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function getCartSubtotal() {
+  return cart.reduce((sum, item) => {
+    const product = products.find(p => p.id === item.id);
+    return sum + (product ? product.price * item.quantity : 0);
+  }, 0);
+}
+
+function renderCart() {
+  const container = document.getElementById("cartContent");
+  if (!cart.length) {
+    container.innerHTML = `
+      <div class="empty-cart">
+        <div class="empty-cart-icon">🛒</div>
+        <strong style="display:block; font-size: 1.1rem; margin-bottom: 6px;">سبد خرید شما خالی است</strong>
+        <button class="hero-btn" onclick="showHome()">مشاهده محصولات فروشگاه</button>
+      </div>
+    `;
+    return;
+  }
+
+  const subtotal = getCartSubtotal();
+  const itemsHTML = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+    if (!product) return "";
+    const imageHTML = product.image ? `<img src="${product.image}">` : `<span>${product.emoji}</span>`;
+    return `
+      <div class="cart-item">
+        <div class="cart-item-image">${imageHTML}</div>
+        <div class="cart-item-info">
+          <h4 class="cart-item-name">${product.name}</h4>
+          <div class="cart-item-price">${formatPrice(product.price * item.quantity)}</div>
+          <div class="quantity">
+            <button type="button" onclick="changeCartQuantity(${product.id}, -1)">−</button>
+            <span>${item.quantity}</span>
+            <button type="button" onclick="changeCartQuantity(${product.id}, 1)">+</button>
+          </div>
+        </div>
+        <button class="remove" onclick="removeFromCart(${product.id})">×</button>
+      </div>
+    `;
+  }).join("");
+
+  container.innerHTML = `
+    <div class="cart-layout">
+      <div>
+        <h3 style="font-size: 1rem; font-weight: 800; margin: 0 0 14px;">اقلام انتخابی (${cart.length})</h3>
+        <div class="cart-items-wrapper">${itemsHTML}</div>
+      </div>
+      <div>
+        <div class="checkout-card">
+          <h3><span>📝</span> اطلاعات ارسال و پرداخت</h3>
+          <div id="checkoutAlert" class="alert-box alert-danger"></div>
+          <form id="checkoutForm" onsubmit="event.preventDefault(); processRealPayment();">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">نام و نام‌خانوادگی *</label><input type="text" id="customerName" class="form-input" required></div>
+              <div class="form-group"><label class="form-label">شماره موبایل *</label><input type="tel" id="customerPhone" class="form-input" placeholder="0912..." dir="ltr" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">استان *</label><input type="text" id="customerProvince" class="form-input" required></div>
+              <div class="form-group"><label class="form-label">شهر *</label><input type="text" id="customerCity" class="form-input" required></div>
+            </div>
+            <div class="form-group"><label class="form-label">آدرس پستی دقیق *</label><textarea id="customerAddress" class="form-textarea" required></textarea></div>
+            <div class="summary-box">
+              <div class="summary-row summary-total"><span>مبلغ قابل پرداخت:</span><strong>${formatPrice(subtotal)}</strong></div>
+            </div>
+            <button type="submit" id="payButton" class="checkout-btn">💳 پرداخت آنلاین و ثبت سفارش</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function changeCartQuantity(id, amount) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.quantity += amount;
+  if (item.quantity <= 0) cart = cart.filter(i => i.id !== id);
+  saveCart(); updateCartCount(); renderCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(i => i.id !== id);
+  saveCart(); updateCartCount(); renderCart(); showToast("محصول از سبد حذف شد");
+}
+
+async function processRealPayment() {
+  const payBtn = document.getElementById("payButton");
+  const name = document.getElementById("customerName")?.value.trim();
+  const phone = document.getElementById("customerPhone")?.value.trim();
+  const province = document.getElementById("customerProvince")?.value.trim();
+  const city = document.getElementById("customerCity")?.value.trim();
+  const address = document.getElementById("customerAddress")?.value.trim();
+
+  if (!name || !phone || !province || !city || !address) {
+    alert("لطفاً تمام فیلدهای ضروری را پر کنید.");
+    return;
+  }
+
+  payBtn.disabled = true;
+  payBtn.innerHTML = "⏳ در حال اتصال به درگاه پرداخت...";
+
+  const payload = {
+    user_id: 1,
+    shipping_info: JSON.stringify({ name, phone, province, city, address }),
+    cart_items: cart
+  };
+
+  try {
+    const res = await fetch("/api/payment/request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (data.payment_url) {
+      window.location.href = data.payment_url;
+    } else {
+      alert("خطا در ایجاد لینک پرداخت: " + (data.error || "خطای ناشناخته"));
+      payBtn.disabled = false;
+      payBtn.innerHTML = "💳 تلاش مجدد جهت پرداخت";
+    }
+  } catch (err) {
+    alert("خطا در برقراری ارتباط با سرور");
+    payBtn.disabled = false;
+    payBtn.innerHTML = "💳 تلاش مجدد جهت پرداخت";
+  }
+}
+
+function checkPaymentCallback() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("payment") === "success") {
+    cart = []; saveCart(); updateCartCount();
+    hideAllViews();
+    document.getElementById("paymentSuccessView").classList.add("active");
+    document.getElementById("successOrderId").textContent = urlParams.get("order_id") || "-";
+    document.getElementById("successRefId").textContent = urlParams.get("ref_id") || "-";
+    document.getElementById("successAmount").textContent = formatPrice(urlParams.get("amount") || 0);
+    return true;
+  } else if (urlParams.get("payment") === "failed") {
+    hideAllViews();
+    document.getElementById("paymentFailedView").classList.add("active");
+    document.getElementById("failedOrderId").textContent = urlParams.get("order_id") || "-";
+    document.getElementById("failedReason").textContent = urlParams.get("reason") || "پرداخت ناموفق بود.";
+    return true;
+  }
+  return false;
+}
+
+document.getElementById("searchInput").addEventListener("input", function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q) { showHome(); return; }
+  const res = products.filter(p => (p.name + " " + p.categoryName).toLowerCase().includes(q));
+  hideAllViews();
+  document.getElementById("searchView").classList.add("active");
+  document.getElementById("searchGrid").innerHTML = res.length
+    ? res.map(createProductCard).join("")
+    : `<div class="empty-cart">محصولی یافت نشد.</div>`;
+});
+
+function hideAllViews() { document.querySelectorAll(".page-view").forEach(v => v.classList.remove("active")); }
+function showHome() { hideAllViews(); document.getElementById("homeView").classList.add("active"); }
+function toggleFavorite() { showToast("به علاقه‌مندی‌ها اضافه شد 💗"); }
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2500);
+}
+
+renderProducts();
+updateCartCount();
+if (!checkPaymentCallback()) showHome();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"d0a1f22119b547a3b02d39f5303aedcd","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
